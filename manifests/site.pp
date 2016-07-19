@@ -44,3 +44,11 @@ node default {
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
 }
+
+file { '/etc/motd':
+  ensure  => present,
+  owner   => 'root',
+  group   => 'root',
+  mode    => '0644',
+  content => 'Today we learned how to manage our Puppet node.'
+}
