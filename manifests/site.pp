@@ -58,3 +58,8 @@ exec { 'motd-cowsay':
   command => "cowsay 'Hello' > /etc/motd",
   require => File['/etc/motd']
 }
+
+host { 'testing.puppetlabs.vm':
+  ensure => present,
+  ip     => '127.0.0.1',
+}
