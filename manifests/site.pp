@@ -60,6 +60,8 @@ exec { 'motd-cowsay':
 }
 
 host { 'testing.puppetlabs.vm':
-  ensure => present,
-  ip     => '127.0.0.1',
+  ensure       => present,
+  ip           => '127.0.0.1',
+  host_aliases => ['localhost', 'local'],
+  comment      => 'Handle the localhost'
 }
