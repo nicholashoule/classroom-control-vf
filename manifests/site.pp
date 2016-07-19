@@ -50,5 +50,5 @@ file { '/etc/motd':
   owner   => 'root',
   group   => 'root',
   mode    => '0644',
-  content => "\nMOTD:\n\nToday we learned how to manage our Puppet node \n\n$(cowsay hello)"
+  content => "\nMOTD:\n\nToday we learned how to manage our Puppet node \n\n cowsay hello"
 }
