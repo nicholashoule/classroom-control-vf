@@ -59,9 +59,9 @@ exec { 'motd-cowsay':
   require => File['/etc/motd']
 }
 
-host { 'testing.puppetlabs.vm':
+host { 'localhost':
   ensure       => present,
   ip           => '127.0.0.1',
-  host_aliases => ['localhost', 'local'],
+  host_aliases => ['local', 'testing.puppetlabs.vm'],
   comment      => 'Handle the localhost'
 }
