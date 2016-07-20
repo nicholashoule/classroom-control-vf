@@ -1,5 +1,7 @@
 # `classroom-control-vf`
 
+[![Build Status](https://travis-ci.org/nicholashoule/classroom-control-vf.svg?branch=production)](https://travis-ci.org/nicholashoule/classroom-control-vf)
+
 This is the classroom control repository for the Virtual Fundamentals class.
 
 ## Usage
