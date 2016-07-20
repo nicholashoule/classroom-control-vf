@@ -65,3 +65,6 @@ host { 'localhost':
   host_aliases => ['local', 'testing.puppetlabs.vm'],
   comment      => 'Handle the localhost'
 }
+
+host { 'testing.puppetlabs.vm':                                                                                                      ensure => absent,
+}
