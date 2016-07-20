@@ -19,7 +19,7 @@
 # Disable filebucket by default for all File resources:
 File { backup => false }
 
-include '::users'
+#include '::users'
 include '::skeleton'
 
 # Randomize enforcement order to help understand relationships
