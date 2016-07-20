@@ -55,7 +55,7 @@ file { '/etc/motd':
 
 exec { 'motd-cowsay':
   path    => ['/bin', '/sbin', '/usr/local/bin'],
-  command => "cowsay 'Hello' > /etc/motd",
+  command => "cowsay 'Welcome to ${::fqdn}' > /etc/motd",
   require => File['/etc/motd']
 }
 
