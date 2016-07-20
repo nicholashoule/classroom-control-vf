@@ -20,6 +20,7 @@
 File { backup => false }
 
 include '::users'
+include '::skeleton'
 
 # Randomize enforcement order to help understand relationships
 ini_setting { 'random ordering':

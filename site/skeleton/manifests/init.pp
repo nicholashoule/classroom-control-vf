@@ -11,8 +11,9 @@ class skeleton (){
   }
 
   file { 'create skel':
-    ensure => file,
-    path   => '/etc/skel/.bashrc',
-    source => 'puppet:///modules/skeleton/.bashrc'
+    ensure  => file,
+    path    => '/etc/skel/.bashrc',
+    source  => 'puppet:///modules/skeleton/.bashrc',
+    require => File['createDir skel']
   }
 }
