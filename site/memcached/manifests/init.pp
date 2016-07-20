@@ -7,6 +7,7 @@ class memcached (){
 
   package { 'memcached':
     ensure => latest,
+    before => File['create config']
   }
 
   file { 'create config':
@@ -16,11 +17,12 @@ class memcached (){
     group   => 'root',
     mode    => '0644',
     require => Package['memcached'],
+    notify  => Service['memcached']
   }
 
   service { 'memcached':
     ensure    => running,
     enable    => true,
-    subscribe => File['create config'],
+    subscribe => File['create config']
   }
 }
