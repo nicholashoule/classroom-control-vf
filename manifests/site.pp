@@ -20,7 +20,7 @@
 File { backup => false }
 
 #include '::users'
-include '::skeleton'
+#include '::skeleton'
 
 # Randomize enforcement order to help understand relationships
 ini_setting { 'random ordering':
@@ -44,9 +44,14 @@ ini_setting { 'random ordering':
 #node default {
   # This is where you can declare classes for all nodes.
   # Example:
-  #   class { 'my_class': }
-  #  notify { "Hello, my name is ${::hostname}!": }
-  #}
+  # class { 'my_class': }
+  notify { "Default node. hostname: ${::hostname}!": }
+}
+
+node default {
+  include '::users'
+  include '::skeleton'
+}
 
 file { '/etc/motd':
   ensure  => file,
@@ -69,5 +74,6 @@ host { 'localhost':
   comment      => 'Handle the localhost'
 }
 
-host { 'testing.puppetlabs.vm':                                                                                                      ensure => absent,
+host { 'testing.puppetlabs.vm':
+  ensure => absent,
 }
