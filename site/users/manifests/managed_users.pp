@@ -1,7 +1,7 @@
 #
 define users::managed_users (
-    $group       = $title,
-    $user        = $title,
+    $group       = downcase($title),
+    $user        = downcase($title),
     $shell       = '/bin/bash',
     $enable_ssh  = true,
 ) {
