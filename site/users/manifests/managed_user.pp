@@ -12,7 +12,7 @@ define users::managed_user (
 
   $_memory = '2048'
 
-  $users.each |$item| {
+  $user.each |$item| {
     notify { $item:
       message  => "Managed Users: ${item}",
       loglevel => 'warning',
