@@ -68,7 +68,7 @@ if $::is_virtual {
   case $::virtual {
     'docker': {
       $_vm_name = upcase($::virtual)
-      notify("VM: ${_vm_name}")
+      notify { "VM: ${_vm_name}" }
     }
   default: {
       fail("Unsupported VM: ${::virtual}")
