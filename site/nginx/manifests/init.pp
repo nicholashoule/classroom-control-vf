@@ -7,7 +7,7 @@ class nginx (){
 
   package { 'nginx':
     ensure => latest,
-    before => File['create config']
+    before => File['create nginx config']
   }
 
   file { 'createDir nginx':
