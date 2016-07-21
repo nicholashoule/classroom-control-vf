@@ -5,4 +5,8 @@ env:
   - PUPPET_GEM_VERSION="~> 4.2.0"
 rvm:
   - 2.0
-script: puppet parser validate .
+script:
+  puppet-lint .
+  ruby -c *.erb
+  puppet parser validate .
+
