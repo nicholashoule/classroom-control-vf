@@ -53,6 +53,11 @@ node /^nicholashoule$/ {
   include '::skeleton'
   include '::memcached'
   include '::nginx'
+
+
+  users::managed_user { 'Bob': }
+  users::managed_user { 'Nick': }
+  users::managed_user { 'Jim': }
 }
 
 file { '/etc/motd':
