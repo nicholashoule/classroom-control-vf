@@ -5,6 +5,8 @@
 # Copyright 2016
 class nginx (){
 
+  $_nginx_dirs = [ '/etc/nginx', '/var/www', '/var/www/html' ]
+
   package { 'nginx':
     ensure => latest,
   }
@@ -15,16 +17,15 @@ class nginx (){
     mode    => '0644',
   }
 
-  file { 'createDir nginx':
+  file { "createDir ${_nginx_dirs}":
     ensure => directory,
-    path   => [ '/etc/nginx', '/var/www', '/var/www/html' ],
   }
 
   file { 'create nginx config':
     ensure  => file,
     path    => '/etc/nginx/nginx.conf',
     source  => 'puppet:///modules/nginx/nginx.conf',
-    require => [ Package['nginx'], File['createDir nginx'] ],
+    require => [ Package['nginx'], File["createDir ${_nginx_dirs}"] ],
     notify  => Service['nginx']
   }
 
@@ -32,7 +33,7 @@ class nginx (){
     ensure  => file,
     path    => '/etc/nginx/conf.d/default.conf',
     source  => 'puppet:///modules/nginx/default.conf',
-    require => [ Package['nginx'], File['createDir nginx'] ],
+    require => [ Package['nginx'], File["createDir ${_nginx_dirs}"] ],
     notify  => Service['nginx']
   }
 
@@ -40,7 +41,7 @@ class nginx (){
     ensure  => file,
     path    => '/var/www/html/index.html',
     source  => 'puppet:///modules/nginx/index.html',
-    require => [ Package['nginx'], File['createDir nginx'] ],
+    require => [ Package['nginx'], File["createDir ${_nginx_dirs}"] ],
     notify  => Service['nginx']
   }
 
