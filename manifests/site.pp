@@ -45,7 +45,7 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   # class { 'my_class': }
-  notify { "Default node. hostname: ${::hostname}!": },
+  notify { "Default node. hostname: ${::hostname}!": }
 }
 
 node /^nicholashoule$/ {
@@ -59,7 +59,7 @@ file { '/etc/motd':
   owner   => 'root',
   group   => 'root',
   mode    => '0644',
-  content => "\nMOTD:\n\nToday we learned how to manage our Puppet node\n\n"
+  content => "\nMOTD:\n\nToday we learned how to manage our Puppet node\n\n",
 }
 
 exec { 'motd-cowsay':
