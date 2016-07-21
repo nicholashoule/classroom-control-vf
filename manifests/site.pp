@@ -63,6 +63,20 @@ file { '/etc/motd':
   content => "\nMOTD:\n\nToday we learned how to manage our Puppet node\n\n",
 }
 
+if $::is_virtual {
+
+  case $::virtual {
+    'docker': {
+      $_vm_name = upcase($::virtual)
+      notify("VM: ${_vm_name}")
+    }
+  default: {
+      fail("Unsupported VM: ${::virtual}")
+    }
+  }
+
+}
+
 exec { 'motd-cowsay':
   path    => ['/bin', '/sbin', '/usr/local/bin'],
   command => "cowsay 'Welcome to ${::fqdn}' > /etc/motd",
