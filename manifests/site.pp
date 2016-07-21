@@ -65,13 +65,15 @@ file { '/etc/motd':
 
 if $facts['is_virtual'] != 'physical' {
 
-  case $::virtual {
+  notify { 'Discovered: Virtual Machine.': }
+
+  case $facts['virtual'] {
     'docker': {
       $_vm_name = upcase($facts['virtual'])
-      notify { "VM: ${_vm_name}": }
+      notify { "Hypervisor: ${_vm_name}": }
     }
   default: {
-      fail("Unsupported VM: $facts['virtual']")
+      fail("Unsupported hypervisor: ${facts['virtual']}")
     }
   }
 
