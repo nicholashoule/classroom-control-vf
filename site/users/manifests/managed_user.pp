@@ -1,5 +1,9 @@
-#
-define users::managed_users (
+# class managed_user.pp
+# 
+# @Authors Nicholas Houle
+# 
+# Copyright 2016
+define users::managed_user (
     $group       = downcase($title),
     $user        = downcase($title),
     $shell       = '/bin/bash',
