@@ -1,3 +1,8 @@
+# class fundamentals.pp
+# 
+# @Authors Nicholas Houle
+# 
+# Copyright 2016
 class examples::fundamentals {
   File {
     owner => 'root',

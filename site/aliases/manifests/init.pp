@@ -1,3 +1,8 @@
+# class aliases.pp
+# 
+# @Authors Nicholas Houle
+# 
+# Copyright 2016
 class aliases (
     $admin = 'root',
 ) {
