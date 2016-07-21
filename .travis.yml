@@ -26,16 +26,16 @@ pe-validate:
     - pe-ruby
 
 pe-validate-erb:
-  stage:
+  stage: validate
   script:
     - bundle update
-    - bundle exec rake validate:erb 
+    - bundle exec rake syntax:templates 
   allow_failure: false
   tags:
     - pe-ruby
 
 pe-lint:
-   stage:
+   stage: validate
    script:
      - bundle update
      - bundle exec rake lint
