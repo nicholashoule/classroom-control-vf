@@ -65,14 +65,14 @@ file { '/etc/motd':
 
 if $facts['is_virtual'] != 'physical' {
 
-  notify { 'Discovered: Virtual Machine.': 
-     loglevel => 'info',
+  notify { 'Discovered: Virtual Machine.':
+    loglevel => 'info',
   }
 
   case $facts['virtual'] {
     'docker': {
       $_vm_name = upcase($facts['virtual'])
-      notify { "Hypervisor: ${_vm_name}": 
+      notify { "Hypervisor: ${_vm_name}":
         loglevel => 'info',
       }
     }
