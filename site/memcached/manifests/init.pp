@@ -7,10 +7,10 @@ class memcached (){
 
   package { 'memcached':
     ensure => latest,
-    before => File['create config']
+    before => File['create memcached config']
   }
 
-  file { 'create config':
+  file { 'create memcached config':
     ensure  => file,
     path    => '/etc/sysconfig/memcached',
     owner   => 'root',
@@ -23,6 +23,6 @@ class memcached (){
   service { 'memcached':
     ensure    => running,
     enable    => true,
-    subscribe => File['create config']
+    subscribe => File['create memcached config']
   }
 }

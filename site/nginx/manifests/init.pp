@@ -15,7 +15,7 @@ class nginx (){
     path   => '/etc/nginx'
   }
 
-  file { 'create config':
+  file { 'create nginx config':
     ensure  => file,
     path    => '/etc/nginx/nginx.conf',
     owner   => 'root',
@@ -28,6 +28,6 @@ class nginx (){
   service { 'nginx':
     ensure    => running,
     enable    => true,
-    subscribe => File['create config']
+    subscribe => File['create nginx config']
   }
 }
