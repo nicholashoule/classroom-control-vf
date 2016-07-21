@@ -63,15 +63,15 @@ file { '/etc/motd':
   content => "\nMOTD:\n\nToday we learned how to manage our Puppet node\n\n",
 }
 
-if $::is_virtual {
+if $facts['is_virtual'] != 'physical' {
 
   case $::virtual {
     'docker': {
-      $_vm_name = upcase($::virtual)
+      $_vm_name = upcase($facts['virtual'])
       notify { "VM: ${_vm_name}": }
     }
   default: {
-      fail("Unsupported VM: ${::virtual}")
+      fail("Unsupported VM: $facts['virtual']")
     }
   }
 
