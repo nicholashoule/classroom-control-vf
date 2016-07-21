@@ -16,6 +16,7 @@ define users::managed_user (
     notify { $item:
       message  => "Managed Users: ${item}",
       loglevel => 'warning',
+    }
   }
 
   group { $group:

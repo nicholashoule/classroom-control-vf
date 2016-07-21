@@ -6,7 +6,7 @@ env:
 rvm:
   - 2.0
 script:
-  puppet-lint .
-  ruby -c *.erb
-  puppet parser validate .
+  "puppet-lint ."
+  "ruby -c *.erb"
+  "puppet parser validate ."
 
