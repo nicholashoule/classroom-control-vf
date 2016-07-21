@@ -3,7 +3,7 @@ define users::managed_users (
     $group       = $title,
     $user        = $title,
     $shell       = '/bin/bash',
- ){
+) {
 
   $users.each |$item| {
     notify { $item:
@@ -14,7 +14,7 @@ define users::managed_users (
   group { $group:
     ensure => present,
   }
- 
+
   user { $user:
     ensure => present,
     gid    => $group,
@@ -30,10 +30,10 @@ define users::managed_users (
   }
 
   file { "/home/${user}/.ssh":
-    ensure  => directory,
-    owner   => $title,
-    group   => $group,
-    mode    => '0700',
+    ensure => directory,
+    owner  => $title,
+    group  => $group,
+    mode   => '0700',
   }
 }
 
