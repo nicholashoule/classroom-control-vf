@@ -5,7 +5,7 @@ define users::managed_users (
     $shell       = '/bin/bash',
     $enable_ssh  = true,
 ) {
-  
+
   $_memory = '2048'
 
   $users.each |$item| {
