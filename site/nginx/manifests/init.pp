@@ -17,7 +17,7 @@ class nginx (){
 
   file { 'createDir nginx':
     ensure => directory,
-    path   => '/etc/nginx'
+    path   => [ '/etc/nginx', '/var/www', '/var/www/html' ],
   }
 
   file { 'create nginx config':
