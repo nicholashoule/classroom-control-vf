@@ -2,7 +2,7 @@ class nginx::params {
 
   case $facts['osfamily'] {
     'redhat' : {
-      $package      = 'nginx'
+      $package      = [ 'nginx', 'nginx-filesystem' ]
       $owner        = 'root'
       $group        = 'root'
       $docroot      = '/var/www'
