@@ -48,7 +48,7 @@ define users::managed_user (
 
     exec { "SSH key: ${user}":
       command => "ssh-keygen -t rsa -M '${_memory}' -f /home/${user}/.ssh/id_rsa",
-      path    => ['/bin', '/sbin', '/usr/bin,],
+      path    => ['/bin', '/sbin', '/usr/bin'],
       creates => "/home/${user}/.ssh/id_rsa",
       require => File["/home/${user}/.ssh"],
     }
