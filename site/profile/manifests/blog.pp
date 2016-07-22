@@ -16,7 +16,7 @@ class profile::blog {
 	  ip_based         => true,
 	}
 
-	class { 'apache::mod::php': }
+	class { 'apache::mod::mod_php': }
 
 	class { '::mysql::server':
 	  root_password           => 'strongpassword',
