@@ -8,11 +8,9 @@ class profile::blog {
 	class { 'apache': }
 	include '::apache::mod::php'
 
-	::apache::vhost { 'localhost':
-	  name             => 'localhost',
+	::apache::vhost { 'default':
 	  port             => '80',
 	  docroot          => '/var/www/wordpress',
-	  fallbackresource => '/index.php',
 	}
 
 	class { '::mysql::server': }
