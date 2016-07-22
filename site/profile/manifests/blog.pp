@@ -4,9 +4,8 @@
 # 
 # Copyright 2016
 class profile::blog {
-	# include '::apache'
-	# include '::mysql'
-	# include '::wordpress'
+	include '::apache::mod::php'
+
 
 	::apache::vhost { '54.191.160.21':
 	  ip               => '54.191.160.21',
@@ -15,8 +14,6 @@ class profile::blog {
 	  fallbackresource => '/index.php',
 	  ip_based         => true,
 	}
-
-	class { 'apache::mod::mod_php': }
 
 	class { '::mysql::server':
 	  root_password           => 'strongpassword',
