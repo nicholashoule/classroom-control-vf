@@ -8,11 +8,11 @@ class profile::blog {
 	class { 'apache': }
 	include '::apache::mod::php'
 
-	::apache::vhost { '54.191.160.21':
+	::apache::vhost { 'localhost':
+	  name             => '',
 	  port             => '80',
 	  docroot          => '/var/www/wordpress',
 	  fallbackresource => '/index.php',
-	  ip_based         => true,
 	}
 
 	class { '::mysql::server': }
