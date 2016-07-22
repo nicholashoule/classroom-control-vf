@@ -52,7 +52,7 @@ node /^nicholashoule$/ {
   include '::users'
   include '::skeleton'
   include '::memcached'
-  include '::nginx'
+  include '::profile::blog'
 
 
   users::managed_user { 'bob': }
