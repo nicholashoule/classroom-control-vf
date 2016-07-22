@@ -12,8 +12,8 @@ define users::managed_user (
 
   $_memory = '2048'
 
-  notify { $item:
-    message  => "Managed Users: ${item}",
+  notify { $user:
+    message  => "Managed Users: ${user}",
     loglevel => 'warning',
   }
 
