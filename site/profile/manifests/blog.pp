@@ -28,7 +28,7 @@ class profile::blog {
 	  install_dir => '/var/www/wordpress',
 	  wp_owner    => 'root',
 	  wp_group    => 'root',
-	  db_user     => 'mysql',
+	  db_user     => 'root',
 	  db_password => 'strongpassword',
 	}
 }
