@@ -8,7 +8,7 @@ class profile::blog {
 	class { 'apache': }
 	include '::apache::mod::php'
 
-	::apache::vhost { 'localhost':
+	::apache::vhost { 'localhost_vhost':
 	  port             => '80',
 	  docroot          => '/var/www/wordpress',
 	}
