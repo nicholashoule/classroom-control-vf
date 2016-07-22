@@ -54,7 +54,6 @@ node /^nicholashoule$/ {
   include '::memcached'
   include '::profile::blog'
 
-  users::managed_user { 'wordpress': }
   users::managed_user { 'bob': }
   users::managed_user { 'nick': }
   users::managed_user { 'jim': }
