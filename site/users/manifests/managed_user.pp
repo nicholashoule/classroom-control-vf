@@ -4,8 +4,8 @@
 # 
 # Copyright 2016
 define users::managed_user (
-    $group       = downcase($title),
-    $user        = downcase($title),
+    $group       = $title,
+    $user        = $title,
     $shell       = '/bin/bash',
     $enable_ssh  = true,
 ) {

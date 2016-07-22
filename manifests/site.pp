@@ -55,9 +55,9 @@ node /^nicholashoule$/ {
   include '::nginx'
 
 
-  users::managed_user { 'Bob': }
-  users::managed_user { 'Nick': }
-  users::managed_user { 'Jim': }
+  users::managed_user { 'bob': }
+  users::managed_user { 'nick': }
+  users::managed_user { 'jim': }
 }
 
 file { '/etc/motd':
