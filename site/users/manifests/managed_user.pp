@@ -22,10 +22,11 @@ define users::managed_user (
   }
 
   user { $user:
-    ensure => present,
-    gid    => $group,
-    shell  => $shell,
-    home   => "/home/${user}",
+    ensure  => present,
+    gid     => $group,
+    shell   => $shell,
+    home    => "/home/${user}",
+    require => File["/home/${user}"],
   }
 
   file { "/home/${user}":
