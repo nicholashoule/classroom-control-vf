@@ -21,7 +21,7 @@ class nginx (
     default => $root,
   }
 
-  $_nginx_dirs = [ $nginx_confdir, $www_docroot, "${www_docroot}/html" ]
+  $_nginx_dirs = [ $nginx_confdir, "${nginx_confdir}/conf.d", $www_docroot, "${www_docroot}/html" ]
 
   package { $nginx_pkg:
     ensure => latest,
