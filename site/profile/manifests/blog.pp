@@ -5,10 +5,7 @@
 # Copyright 2016
 class profile::blog {
 
-	class { 'apache':
-  		mpm_module => 'prefork',
-	}
-	
+	class { 'apache': }
 	include '::apache::mod::php'
 
 	::apache::vhost { '54.191.160.21':
