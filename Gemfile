@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: "https://rubygems.org/"
   specs:
     facter (2.4.6)
     hiera (1.3.4)
