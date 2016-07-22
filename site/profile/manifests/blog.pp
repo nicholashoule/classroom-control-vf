@@ -6,7 +6,6 @@
 class profile::blog {
 	include '::apache::mod::php'
 
-
 	::apache::vhost { '54.191.160.21':
 	  ip               => '54.191.160.21',
 	  port             => '80',
