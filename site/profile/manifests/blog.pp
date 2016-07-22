@@ -9,7 +9,7 @@ class profile::blog {
 	include '::apache::mod::php'
 
 	::apache::vhost { 'localhost':
-	  name             => '',
+	  name             => 'localhost',
 	  port             => '80',
 	  docroot          => '/var/www/wordpress',
 	  fallbackresource => '/index.php',
