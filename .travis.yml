@@ -13,8 +13,6 @@ before_script:
 
 stages:
   - validate
-  - spec
-  - acceptance
 
 pe-validate:
   stage: validate
@@ -23,15 +21,6 @@ pe-validate:
     - bundle exec rake validate
   allow_failure: false
   tags: 
-    - pe-ruby
-
-pe-validate-erb:
-  stage: validate
-  script:
-    - bundle update
-    - bundle exec rake syntax:templates 
-  allow_failure: false
-  tags:
     - pe-ruby
 
 pe-lint:
