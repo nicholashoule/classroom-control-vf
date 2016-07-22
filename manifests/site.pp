@@ -104,3 +104,6 @@ host { 'localhost':
 host { 'testing.puppetlabs.vm':
   ensure => absent,
 }
+
+$foo = hiera('message')
+notify { $foo: }
