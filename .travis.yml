@@ -2,33 +2,7 @@
 language: ruby
 sudo: false
 env:
-  - PUPPET_GEM_VERSION="~> 4.2.0"
-
+    - PUPPET_GEM_VERSION="~> 4.2.0"
 rvm:
-  - 2.0
-
-before_script:
-  - ruby -v
-  - bundle install
-
-stages:
-  - validate
-
-pe-validate:
-  stage: validate
-  script:
-    - bundle update
-    - bundle exec rake validate
-  allow_failure: false
-  tags: 
-    - pe-ruby
-
-pe-lint:
-   stage: validate
-   script:
-     - bundle update
-     - bundle exec rake lint
-   allow_failue: true
-   tags:
-    - pe-ruby
-
+    - 2.0
+script: puppet parser validate .

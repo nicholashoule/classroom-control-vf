@@ -13,28 +13,6 @@ class nginx (
   $nginx_svc     = $nginx::params::service_user,
 ) inherits nginx::params {
 
-case $facts['osfamily'] {
-    'redhat' : {
-      $package      = 'nginx'
-      $owner        = 'root'
-      $group        = 'root'
-      $docroot      = '/var/www'
-      $confdir      = '/etc/nginx'
-      $service_user = 'nginx'
-    }
-    'debian' : {
-      $package      = 'nginx'
-      $owner        = 'root'
-      $group        = 'root'
-      $docroot      = '/var/www'
-      $confdir      = '/etc/nginx'
-      $service_user = 'www-data'
-    }
-    default : {
-      fail("Module ${module_name} is not supported on ${facts['osfamily']}")
-    }
-  }
-
   # Determine the docroot to use.
   # If the user passed in a value for the $docroot paramter, use that.
   # If the user did not pass in $docroot, use the value from the case statement.
