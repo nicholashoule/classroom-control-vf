@@ -18,17 +18,12 @@ class profile::blog {
 	  ip_based         => true,
 	}
 
-	class { '::mysql::server':
-	  root_password           => 'strongpassword',
-	  remove_default_accounts => true,
-	  override_options        => $override_options
+	class { '::mysql::server': }
+	class { '::mysql::bindings':
+	  php_enable => true,
 	}
 
 	class { 'wordpress':
 	  install_dir => '/var/www/wordpress',
-	  wp_owner    => 'root',
-	  wp_group    => 'root',
-	  db_user     => 'root',
-	  db_password => 'strongpassword',
 	}
 }
