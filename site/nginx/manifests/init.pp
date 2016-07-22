@@ -39,7 +39,7 @@ class nginx (
 
   file { 'create nginx config':
     ensure  => file,
-    path    => '/etc/nginx.conf',
+    path    => "${nginx_confdir}/nginx.conf",
     source  => 'puppet:///modules/nginx/nginx.conf',
     require => [ Package[$nginx_pkg], File[$_nginx_dirs] ],
     notify  => Service[$nginx_svc]
